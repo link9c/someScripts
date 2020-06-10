@@ -6,7 +6,7 @@ if sys.platform != 'win32':
     print("暂未支持mac系统")
     raise EnvironmentError
 
-if float(sys.winver) < 3.8:
+if float(sys.winver.split('-')[0]) < 3.8:
     print('版本过低')
     raise EnvironmentError
 
@@ -95,7 +95,7 @@ class BombQQ:
                 self.num = 1
                 setText(c)
                 self._action()
-            self._action()
+            # self._action()
         elif self.m == 3:
             count = self.num
             while count > 0:
@@ -330,7 +330,7 @@ class Alarm(object):
                 self.file_label.config(text="读取成功")
 
             except Exception as e:
-
+                print(e)
                 self.file_label.config(text="读取失败")
 
     def get_windows_list(self):
